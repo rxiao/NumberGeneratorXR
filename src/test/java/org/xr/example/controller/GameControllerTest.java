@@ -2,6 +2,7 @@ package org.xr.example.controller;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.xr.example.model.Answer;
 import org.xr.example.model.Game;
 import org.xr.example.service.NumberGenerator;
@@ -9,19 +10,21 @@ import org.xr.example.view.GameView;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
+import static org.mockito.MockitoAnnotations.initMocks;
 
 public class GameControllerTest {
     private GameController gameController;
+    @Mock
     private NumberGenerator numberGenerator;
+    @Mock
     private GameView gameView;
 
     @Before
     public void setUp() throws Exception {
         //given
-        numberGenerator = mock(NumberGenerator.class);
+        initMocks(this);
         Answer actualAnswer = new Answer(new int[]{1, 2, 3, 4});
         when(numberGenerator.generate()).thenReturn(actualAnswer);
-        gameView = mock(GameView.class);
     }
 
     @Test

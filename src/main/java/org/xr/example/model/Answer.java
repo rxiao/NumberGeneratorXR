@@ -13,6 +13,10 @@ public class Answer {
         }
     }
 
+    public Answer(int x, int y, int z, int t) {
+
+    }
+
     public int countCorrectPositions(Answer secondAnswer) {
         int count = 0;
         for (int i = 0; i < numbers.size(); i++) {
